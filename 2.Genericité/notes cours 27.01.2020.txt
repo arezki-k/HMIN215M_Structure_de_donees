@@ -1,0 +1,16 @@
+généricit(c++ templates)
+classes géneriques = calsses arraylist qui ont un parametre qui est un type Arraylist<Etudiant>.
+exemple de la liste:
+interface List
+
+polymorphisme paramétrique.
+classes Wrappers(enveloppes)=> emballer un type Primitif:
+int->Integer
+double->Double
+cgar->Character
+float->Float
+boolean->Boolean
+
+mécanisme d'autoboxing: automatiquement mettre en boite sous fomre d'instance ou sortir de la boite(valeur)
+new Integer (1);
+int j = (int) i;

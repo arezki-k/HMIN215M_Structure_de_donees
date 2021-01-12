@@ -1,0 +1,63 @@
+assertions:
+verification du code rédigé pendant le developpememnt du programme.
+-la mise au point.
+activées ou desactivées
+vérifier des axiomes
+-Après avoir empiler t t est au sommet de la pile.
+public void empiler(T t){
+this.elements.add(t);
+//point de vérification:
+assert this.sommet == t;
+variantes: assert this.sommet.equals(t);
+assert this.elements.get(elements.size()-1).equals(t)==t;
+}
+il est de coutume de créer des variables locales pour sauvgarder l'état avant la modification.
+
+2-PileBornée:
+comme une pile + nouvelles contraintes.
+taille max initialisable, changeable en cours de route.
+invariant = axiome.
+nbelements <= taille max;
+
+on a Pile implemente Ipile.
+on cree une nouvelle interface.
+Ipilebornee etend Ipile
+donc PileBornee etend Pile et implemente iPileBornee.
+
+Exception:
+pendant le fonctionnement; il peut avoir des erreur:
+-> due à l'utilisateur;(choix de date de retour antérieur à la date aller)=>le programme ne doit cracher.
+-> environenement(coupure réseaux)
+-> Erreur de prog non récupérées lors de vérification
+=> Eviter l'interruption totale de service, récupérable si possible, puis continue.
+
+
+Classes représentant les erreurs:
+->public class TailleMaxException extends Exception{
+public TailleMaxException(){};
+public TailleMaxException(String message){
+super(message);}
+}
+on regarde les méthodes et on suppose les exceptions possibles.
+méthode empiler, peut s'arreter à cause d'un probleme de taille depassé.
+
+Récupération dans n'importe quelle méthode, ex dans un main.
+
+PileBornee<String> String = new PileBornee<>();
+String.setTailleMax(3);
+String.empiler("Banane");
+String.empiler("fraise"); 
+String.empiler("pomme");
+String.empiler("Citron");
+
+pour empecher le programme de cracher, on utilise le bloc try catch;
+
+try{
+String.empiler("Banane");
+String.empiler("fraise"); 
+String.empiler("pomme");
+String.empiler("Citron");
+}catch(PilePleineEXception e){
+e.getMessage();
+}
+

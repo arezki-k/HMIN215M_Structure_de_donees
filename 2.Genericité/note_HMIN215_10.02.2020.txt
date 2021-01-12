@@ -1,0 +1,5 @@
+1- definir la contrainte borné type: saisissable.
+2- utliser la borne sur les parametres de généricité A,B
+3- faire une classe envelope(wrapper).
+comme String n'implémente pas saisissable.
+
